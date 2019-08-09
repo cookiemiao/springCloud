@@ -1,0 +1,10 @@
+eureka:
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://peer1:9001/eureka/
+server:
+  port: 10000
+spring:
+  application:
+    name: service-helloworld
