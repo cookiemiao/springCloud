@@ -5,13 +5,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
-public class helloWorldController {
+public class HelloWorldController {
     @Autowired
     HelloWorldService helloWorldService;
 
     @GetMapping("helloWorld")
-    public String helloWorld(){
-        return helloWorldService.helloWorld("bisheng");
+    public String helloWorld(String name) {
+        name = Optional.ofNullable(name).orElse("noName");
+        return helloWorldService.helloWorld(name);
     }
 }
